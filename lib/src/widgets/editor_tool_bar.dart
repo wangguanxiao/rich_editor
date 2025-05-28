@@ -51,21 +51,21 @@ class EditorToolBar extends StatelessWidget {
                     await javascriptExecutor.setItalic();
                   },
                 ),
-                TabButton(
-                  tooltip: 'Insert Link',
-                  icon: Icons.link,
-                  onTap: () async {
-                    var link = await showDialog(
-                      context: context,
-                      barrierDismissible: false,
-                      builder: (_) {
-                        return InsertLinkDialog();
-                      },
-                    );
-                    if (link != null)
-                      await javascriptExecutor.insertLink(link[0], link[1]);
-                  },
-                ),
+                // TabButton(
+                //   tooltip: 'Insert Link',
+                //   icon: Icons.link,
+                //   onTap: () async {
+                //     var link = await showDialog(
+                //       context: context,
+                //       barrierDismissible: false,
+                //       builder: (_) {
+                //         return InsertLinkDialog();
+                //       },
+                //     );
+                //     if (link != null)
+                //       await javascriptExecutor.insertLink(link[0], link[1]);
+                //   },
+                // ),
                 TabButton(
                   tooltip: 'Insert Image',
                   icon: Icons.image,
@@ -311,20 +311,20 @@ class EditorToolBar extends StatelessWidget {
                     await javascriptExecutor.insertNumberedList();
                   },
                 ),
-                TabButton(
-                  tooltip: 'Checkbox',
-                  icon: Icons.check_box_outlined,
-                  onTap: () async {
-                    var text = await showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return CheckDialog();
-                      },
-                    );
-                    if (text != null)
-                      await javascriptExecutor.insertCheckbox(text);
-                  },
-                ),
+                // TabButton(
+                //   tooltip: 'Checkbox',
+                //   icon: Icons.check_box_outlined,
+                //   onTap: () async {
+                //     var text = await showDialog(
+                //       context: context,
+                //       builder: (BuildContext context) {
+                //         return CheckDialog();
+                //       },
+                //     );
+                //     if (text != null)
+                //       await javascriptExecutor.insertCheckbox(text);
+                //   },
+                // ),
 
                 /// TODO: Implement Search feature
                 // TabButton(

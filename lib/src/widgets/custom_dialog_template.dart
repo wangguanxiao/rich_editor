@@ -18,11 +18,11 @@ class CustomDialogTemplate extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: () => onDone!(),
-          child: Text('Done'),
+          child: Text('确定'),
         ),
         TextButton(
           onPressed: () => onCancel!(),
-          child: Text('Cancel'),
+          child: Text('取消'),
         ),
       ],
     );

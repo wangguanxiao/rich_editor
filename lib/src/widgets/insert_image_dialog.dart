@@ -25,10 +25,10 @@ class _InsertImageDialogState extends State<InsertImageDialog> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(widget.isVideo ? 'Video link' : 'Image link'),
+            Text(widget.isVideo ? '图片链接' : '图片链接'),
             ElevatedButton(
               onPressed: () => getImage(),
-              child: Text('...'),
+              child: Text('选择图片'),
             ),
           ],
         ),
@@ -38,23 +38,23 @@ class _InsertImageDialogState extends State<InsertImageDialog> {
             hintText: '',
           ),
         ),
-        Visibility(
-          visible: !widget.isVideo,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 20.0),
-              Text('Alt text (optional)'),
-              TextField(
-                controller: alt,
-                decoration: InputDecoration(
-                  hintText: '',
-                ),
-              ),
-            ],
-          ),
-        ),
+        // Visibility(
+        //   visible: !widget.isVideo,
+        //   child: Column(
+        //     mainAxisSize: MainAxisSize.min,
+        //     crossAxisAlignment: CrossAxisAlignment.start,
+        //     children: [
+        //       SizedBox(height: 20.0),
+        //       Text('Alt text (optional)'),
+        //       TextField(
+        //         controller: alt,
+        //         decoration: InputDecoration(
+        //           hintText: '',
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
       ],
       onDone: () => Navigator.pop(context, [link.text, alt.text, picked]),
       onCancel: () => Navigator.pop(context),

@@ -10,7 +10,7 @@ class CheckDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomDialogTemplate(
       body: [
-        Text('Checkbox title'),
+        Text('选项标题'),
         TextField(
           controller: _textEditingController,
           decoration: InputDecoration(hintText: ''),
