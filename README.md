@@ -7,6 +7,12 @@ WYSIWYG editor for Flutter with a rich set of supported formatting options.
 
 Based on https://github.com/dankito/RichTextEditor, but for Flutter.
 
+我的修改点：
+1、汉化，把英文改为中文；
+2、把图片显示，改为按照图片原比例显示，他原本的是，如果
+  我传一个宽屏的图片，它会给我加一个正方形的边框，我不想要这个边框；
+3、把视频去掉了， 我现在暂时不需要视频。
+
 ## ✨ Features
 
 - [x] Bold, Italic, Underline, Strike through, Subscript, Superscript
