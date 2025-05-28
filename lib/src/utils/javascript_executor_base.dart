@@ -224,8 +224,8 @@ class JavascriptExecutorBase {
   insertImage(String url,
       {String? alt, int? width, int? height, int? rotation}) async {
     if (rotation == null) rotation = 0;
-    if (width == null) width = 300;
-    if (height == null) height = 300;
+    if (width == null) width = width;
+    if (height == null) height = height;
     if (alt == null) alt = '';
     await executeJavascript(
       "insertImage('$url', '$alt', '$width', '$height', $rotation);",
