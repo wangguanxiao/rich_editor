@@ -23,7 +23,7 @@ var editor = {
     _imageMinWidth: 100,
     _imageMinHeight: 50,
 
-    _isImageResizingEnabled: true,
+    _isImageResizingEnabled: false,
 
 
     init: function() {
