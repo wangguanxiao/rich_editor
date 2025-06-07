@@ -89,7 +89,12 @@ class _CustomToolbarDemoState extends State<CustomToolbarDemo> {
                 // Position of the editing bar (BarPosition.TOP or BarPosition.BOTTOM)
                 barPosition: BarPosition.CUSTOM,
               ),
-
+              onEditorCreated: (){
+                print("【Webview】刚开始创建");
+              },
+              onEditorLoadStop: () {
+                print("【Webview】加载完成");
+              },
               // You can return a Link (maybe you need to upload the image to your
               // storage before displaying in the editor or you can also use base64
               getImageUrl: (image) {

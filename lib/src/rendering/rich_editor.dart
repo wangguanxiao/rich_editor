@@ -16,6 +16,8 @@ class RichEditor extends StatefulWidget {
   final RichEditorOptions? editorOptions;
   final Function(File image)? getImageUrl;
   final Function(File video)? getVideoUrl;
+  final Function()? onEditorCreated;
+  final Function()? onEditorLoadStop;
 
   RichEditor({
     Key? key,
@@ -23,6 +25,8 @@ class RichEditor extends StatefulWidget {
     this.editorOptions,
     this.getImageUrl,
     this.getVideoUrl,
+    this.onEditorCreated,
+    this.onEditorLoadStop
   }) : super(key: key);
 
   @override
@@ -94,6 +98,9 @@ class RichEditorState extends State<RichEditor> {
           child: InAppWebView(
             key: _mapKey,
             onWebViewCreated: (controller) async {
+              if (widget.onEditorCreated != null) {
+                widget.onEditorCreated!();
+              }
               _controller = controller;
               setState(() {});
               if (!kIsWeb && !Platform.isAndroid) {
@@ -110,18 +117,25 @@ class RichEditorState extends State<RichEditor> {
               }
             },
             onLoadStop: (controller, link) async {
+              if (widget.onEditorLoadStop != null) {
+                widget.onEditorLoadStop!();
+              }
               if (link!.path != 'blank') {
                 javascriptExecutor.init(_controller!);
                 await _setInitialValues();
                 _addJSListener();
               }
             },
+
             // javascriptMode: JavascriptMode.unrestricted,
             // gestureNavigationEnabled: false,
             gestureRecognizers: [
               Factory(() => VerticalDragGestureRecognizer()..onUpdate = (_) {}),
             ].toSet(),
             onReceivedError: (controller, url, e) {
+              if (widget.onEditorLoadStop != null) {
+                widget.onEditorLoadStop!();
+              }
               print("error $e ");
             },
             onConsoleMessage: (controller, consoleMessage) async {
