@@ -235,7 +235,10 @@ var editor = {
     },
 
     _decodeHtml: function(html) {
-        return decodeURIComponent(html.replace(/\+/g, '%20'));
+        return html;
+        // 这个完全多此一举啊， 浏览器都会自动解码的，你在这儿转一下干什么
+        // 关键你把 img 的 src 里的地址都给转成 %20 / 浏览器都无法识别了
+        //return decodeURIComponent(html.replace(/\+/g, '%20'));
     },
 
     _setBaseUrl: function(baseUrl) {
