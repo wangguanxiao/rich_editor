@@ -37,11 +37,11 @@ var editor = {
             var M = 77;
 
             if(e.which == BACKSPACE) {
-                if(editor._textField.innerText.length == 1) { // prevent that first paragraph gets deleted
-                    e.preventDefault();
+                // if(editor._textField.innerText.length == 1) { // prevent that first paragraph gets deleted
+                //     e.preventDefault();
 
-                    return false;
-                }
+                //     return false;
+                // }
             }
             else if(e.which == M && e.ctrlKey) { // TODO: what is Ctrl + M actually good for?
                 e.preventDefault(); // but be aware in this way also (JavaFX) application won't be able to use Ctrl + M
@@ -446,11 +446,11 @@ var editor = {
             imageElement.setAttribute('alt', alt);
         }
 
-        if(width)  {
+        if(width && width != 'null' && width !== 'undefined')  {
             imageElement.setAttribute('width', width);
         }
 
-        if(height)  {
+        if(height && height != 'null' && height !== 'undefined')  {
             imageElement.setAttribute('height', height);
         }
 
